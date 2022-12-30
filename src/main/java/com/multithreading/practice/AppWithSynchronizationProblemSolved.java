@@ -3,18 +3,18 @@ package com.multithreading.practice;
 public class AppWithSynchronizationProblemSolved {
     public static int counter1 = 0;
     public static int counter2 = 0;
-    private static final Object OBJECT1 = new Object();
-    private static final Object OBJECT2 = new Object();
+    private static final Object lock1 = new Object();
+    private static final Object lock2 = new Object();
 
     public static void increment1() {
         // at the same time != parallel - since CPU uses time slicing algorithm
-        synchronized (OBJECT1) {
+        synchronized (lock1) {
             counter1++;
         }
     }
 
     public static void increment2() {
-        synchronized (OBJECT2) {
+        synchronized (lock2) {
             counter2++;
         }
     }
